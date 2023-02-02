@@ -2,7 +2,11 @@ import React from "react";
 
 const TodoListItem = (props) => {
     return (
-          <li>{props.todo.title}</li>
+
+          <li>{props.id}
+          {props.title}
+          </li>
+    
     )
 }
 
