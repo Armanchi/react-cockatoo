@@ -34,9 +34,10 @@ const App = () => {
     setTodoList([...todoList, newTodo])
   }
   const removeTodo = (id) => {
-    const filteredList = todoList.filter((item) => id !== item.id);
-    setTodoList(filteredList)
-  }
+    const newTodoList = todoList.filter((todo) =>
+      id !== todo.id);
+    setTodoList(newTodoList)
+  }; 
   return (
     <div>
       <h1>Todo List</h1>
