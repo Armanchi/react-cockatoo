@@ -1,0 +1,13 @@
+/* @import url('https://fonts.googleapis.com/css2?family=NTR&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=Courgette&family=NTR&display=swap');
+
+body {
+    background-image: url('https://i.pinimg.com/736x/d3/4c/69/d34c6961043f060b6a661121c647407e.jpg');
+    font-family: 'Courgette', cursive;
+    padding-left: 5%;
+    padding-top: 2%;
+}
+
+
+/* change background color 
+add fonts to glbal */

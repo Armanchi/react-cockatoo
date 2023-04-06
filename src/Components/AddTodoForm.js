@@ -1,6 +1,8 @@
 import React from "react";
 import { useState } from "react";
 import InputWithLabel from "./InputWithLabel";
+import '../styles/TodoForm.css'
+import { BsPinAngle } from "react-icons/bs";
 
 const AddTodoForm = ({onAddTodo}) => {
     const [todoTitle, setTodoTitle] = useState('');
@@ -15,8 +17,8 @@ const AddTodoForm = ({onAddTodo}) => {
         setTodoTitle("");   
     }
     return(
-        <div>
-        <form onSubmit={handleAddTodo}>
+        <div className="FormControl">
+        <form onSubmit={handleAddTodo} className="TodoForm" >
             <InputWithLabel
             todoTitle={todoTitle}
             handleTitleChange={handleTitleChange}
@@ -24,7 +26,9 @@ const AddTodoForm = ({onAddTodo}) => {
             >
                 <strong>Title: </strong>
             </InputWithLabel> 
-            <button type="submit">Add</button>
+            <div className="ButtonContainer">
+            <button type="submit" className="pinButton"> {<BsPinAngle />} </button>
+            </div>
         </form>
         </div>
     )

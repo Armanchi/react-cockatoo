@@ -1,0 +1,16 @@
+.ListItem {
+    display: flex;
+    flex-direction: row; 
+    justify-content:flex-end;
+    padding-bottom: 8px;
+    padding-right: 50px;
+    font-size: 17px;
+    color: black;
+    align-items: center;
+}
+
+/* .RemoveButton{
+    
+} */
+
+
