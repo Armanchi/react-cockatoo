@@ -1,0 +1,12 @@
+.intro {
+    background-image: url('https://i.pinimg.com/564x/ea/d6/9a/ead69acce05bc8ab9bf92879264871ae.jpg');
+    width: 28%;
+    margin: 5px;
+    border-right: 1px dotted #dad7cd;
+    border-left: 1px dotted #dad7cd;
+    opacity: .8;
+}
+
+.Title{
+    font-size: 45px;
+}

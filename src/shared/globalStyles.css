@@ -1,13 +1,27 @@
 /* @import url('https://fonts.googleapis.com/css2?family=NTR&display=swap'); */
-@import url('https://fonts.googleapis.com/css2?family=Courgette&family=NTR&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Courgette&family=NTR&family=Roboto+Mono&display=swap');
 body {
     background-image: url('https://i.pinimg.com/736x/d3/4c/69/d34c6961043f060b6a661121c647407e.jpg');
-    font-family: 'Courgette', cursive;
+    font-family: 'Roboto Mono', monospace;
     padding-left: 5%;
     padding-top: 2%;
 }
+button {
+    background-color: #c8d5b9;
+    opacity: .6;
+    transition: 0.1s ease-in-out;
+    border: 1.5px solid #fff;
+    border-radius: 10px;
+    color: black;
+    padding: 4px 15px;
+    font-size: 13px;
+    cursor: pointer;
+}
 
+button:hover{
+    background:#97abb1;
+    border: 1.5px solid #fff;
+}
 
 /* change background color 
 add fonts to glbal */

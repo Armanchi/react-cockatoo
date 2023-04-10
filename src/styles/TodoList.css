@@ -1,13 +1,26 @@
+.TodoListTitleContainer {
+    background-image: url('https://i.pinimg.com/564x/ea/d6/9a/ead69acce05bc8ab9bf92879264871ae.jpg');
+    width: 28%;
+    margin: 5px;
+    border-right: 1px dotted #dad7cd;
+    border-left: 1px dotted #dad7cd;
+    opacity: .8;
+}
+
 .Title {
-    font-size: 40px;
+    font-size: 45px;
     text-align: center;
 }
-.TodoList {
-        background-color: rgb(184, 184, 255, .5);
-        display: flex;
-        width: 25%;
-        max-height: 100%;
-        flex-direction: column;
-        align-items: center;
+
+.TodoListContainer {
+    background-image: url('https://i.pinimg.com/564x/cb/87/8c/cb878c7b6c82c0308c4f6b2c5c02d861.jpg');
+    width: 43%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: inset -6px -4px 2px rgba(255, 255, 255, 0.03);
+    border-radius: 15px;
 }
+
 

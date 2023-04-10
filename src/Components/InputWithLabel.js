@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 
 
 const InputWithLabel = ({todoTitle, handleTitleChange, children}) => {
@@ -12,7 +12,7 @@ const InputWithLabel = ({todoTitle, handleTitleChange, children}) => {
     <input 
       id="todoTitle"
       type="text" 
-      name="title" 
+      name="Title" 
       value={todoTitle}
       onChange={handleTitleChange}
       ref={inputRef}

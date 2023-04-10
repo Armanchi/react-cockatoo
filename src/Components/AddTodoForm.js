@@ -6,12 +6,13 @@ import { BsPinAngle } from "react-icons/bs";
 
 const AddTodoForm = ({onAddTodo}) => {
     const [todoTitle, setTodoTitle] = useState('');
+
     const handleTitleChange = (e) => {
         const newTodoTitle = e.target.value
         setTodoTitle(newTodoTitle)
     }
-    const handleAddTodo = (event) => {
-        event.preventDefault();
+    const handleAddTodo = (e) => {
+        e.preventDefault();
         console.log(todoTitle);
         onAddTodo({title: todoTitle, id: Date.now()});
         setTodoTitle("");   
@@ -22,9 +23,9 @@ const AddTodoForm = ({onAddTodo}) => {
             <InputWithLabel
             todoTitle={todoTitle}
             handleTitleChange={handleTitleChange}
-            autoFocus
             >
                 <strong>Title: </strong>
+                
             </InputWithLabel> 
             <div className="ButtonContainer">
             <button type="submit" className="pinButton"> {<BsPinAngle />} </button>
