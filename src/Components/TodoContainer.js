@@ -9,6 +9,8 @@ const TodoContainer = () => {
     const [todoList, setTodoList] = useState(
       JSON.parse(localStorage.getItem('savedTodoList') || '[]')
     );
+    const [isLoading, setIsLoading] = React.useState(true);
+
     useEffect(() => {
       fetch(`https://api.airtable.com/v0/${process.env.REACT_APP_AIRTABLE_BASE_ID}/Default/`, {
         method: 'GET',
@@ -23,7 +25,7 @@ const TodoContainer = () => {
         })
       }, []);
   
-    const [isLoading, setIsLoading] = React.useState(true);
+   
   
     useEffect(() => {
       if(!isLoading) {
@@ -31,20 +33,61 @@ const TodoContainer = () => {
       }
     }, [todoList, isLoading]);
   
-    const addTodo = (newTodo) => {
-      setTodoList([...todoList, newTodo])
-    }
-    const removeTodo = (id) => {
-      const newTodoList = todoList.filter((todo) =>
-        id !== todo.id);
-      setTodoList(newTodoList)
+    // const addTodo = (newTodo) => {
+    //   setTodoList([...todoList, newTodo])
+    // }
+    
+    const addTodo = async (newTodo) => {
+      const title = newTodo[0].title;
+      const postBody = {
+        fields: {
+          Title: title,
+        },
+        typecast: true,
+      };
+      const options = {
+        method: "POST",
+        headers: {
+          Authorization: `Bearer ${process.env.REACT_APP_AIRTABLE_API_KEY}`,
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(postBody),
+      };
+      let todo = {};
+      await fetch(`https://api.airtable.com/v0/${process.env.REACT_APP_AIRTABLE_BASE_ID}/Default`, options)
+        .then((response) => response.json())
+        .then((data) => {
+          todo.id = data.id;
+          todo.title = data.fields.Title;
+        });
+      setTodoList([...todoList, newTodo]);
     };
+
+    // const removeTodo = (id) => {
+    //   const newTodoList = todoList.filter((todo) =>
+    //     id !== todo.id);
+    //   setTodoList(newTodoList)
+    // };
+      const removeTodo = async (id) => {
+    //DELETE 
+    const options = {
+      method: "DELETE",
+      headers: {
+        Authorization: `Bearer ${process.env.REACT_APP_AIRTABLE_API_KEY}`,
+      },
+    };
+    await fetch(
+      `https://api.airtable.com/v0/${process.env.REACT_APP_AIRTABLE_BASE_ID}/Default/${id}`,
+      options
+    );
+    setTodoList(todoList.filter((todoList) => todoList.id !== id));
+  };
 
     return(
         <>
         <Navbar />
         <div className='TodoListTitleContainer'>
-        <h1 className= "Title">Todo List</h1>
+        <h1 className= "IntroTitle">Todo List</h1>
         </div>
         <div className='TodoListContainer'>
         <AddTodoForm onAddTodo={addTodo}/>

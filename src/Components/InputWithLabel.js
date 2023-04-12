@@ -12,7 +12,7 @@ const InputWithLabel = ({todoTitle, handleTitleChange, children}) => {
     <input 
       id="todoTitle"
       type="text" 
-      name="Title" 
+      name="title" 
       value={todoTitle}
       onChange={handleTitleChange}
       ref={inputRef}

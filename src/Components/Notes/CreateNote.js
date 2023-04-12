@@ -1,6 +1,4 @@
-import { BsSave2 } from "react-icons/bs";
-
-
+import { BsPin} from "react-icons/bs";
 
 const CreateNote = ({ textHandler, saveHandler, inputText }) => {
   //character limit
@@ -20,7 +18,7 @@ const CreateNote = ({ textHandler, saveHandler, inputText }) => {
       <div className="note__footer">
         <span className="label">{charLeft} left</span>
         <button className="note__save" onClick={saveHandler}>
-          {<BsSave2 />}
+          {<BsPin />}
         </button>
       </div>
     </div>

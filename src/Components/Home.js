@@ -9,6 +9,11 @@ const Home = () => {
     <div className='intro'>
         <div>
         <h1 className='Title'>Welcome!</h1>
+        <div className='IntroContainer'>
+            <p>
+              
+            </p>
+        </div>
         </div>
     </div>
     </>

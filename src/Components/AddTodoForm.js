@@ -2,7 +2,7 @@ import React from "react";
 import { useState } from "react";
 import InputWithLabel from "./InputWithLabel";
 import '../styles/TodoForm.css'
-import { BsPinAngle } from "react-icons/bs";
+import { BsPin } from "react-icons/bs";
 
 const AddTodoForm = ({onAddTodo}) => {
     const [todoTitle, setTodoTitle] = useState('');
@@ -28,7 +28,7 @@ const AddTodoForm = ({onAddTodo}) => {
                 
             </InputWithLabel> 
             <div className="ButtonContainer">
-            <button type="submit" className="pinButton"> {<BsPinAngle />} </button>
+            <button type="submit" className="pinButton" > {<BsPin />} </button>
             </div>
         </form>
         </div>
