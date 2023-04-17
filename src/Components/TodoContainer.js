@@ -24,20 +24,19 @@ const TodoContainer = () => {
           setIsLoading(false)
         })
       }, []);
-  
-   
-  
+
     useEffect(() => {
       if(!isLoading) {
       localStorage.setItem('savedTodoList', JSON.stringify(todoList));
       }
     }, [todoList, isLoading]);
-  
+
     // const addTodo = (newTodo) => {
     //   setTodoList([...todoList, newTodo])
     // }
     
     const addTodo = async (newTodo) => {
+      //POST
       const title = newTodo[0].title;
       const postBody = {
         fields: {
@@ -54,20 +53,14 @@ const TodoContainer = () => {
         body: JSON.stringify(postBody),
       };
       let todo = {};
-      await fetch(`https://api.airtable.com/v0/${process.env.REACT_APP_AIRTABLE_BASE_ID}/Default`, options)
+      fetch(`https://api.airtable.com/v0/${process.env.REACT_APP_AIRTABLE_BASE_ID}/Default/`, options)
         .then((response) => response.json())
         .then((data) => {
           todo.id = data.id;
           todo.title = data.fields.Title;
         });
-      setTodoList([...todoList, newTodo]);
+      setTodoList([...todoList, ...newTodo]);
     };
-
-    // const removeTodo = (id) => {
-    //   const newTodoList = todoList.filter((todo) =>
-    //     id !== todo.id);
-    //   setTodoList(newTodoList)
-    // };
       const removeTodo = async (id) => {
     //DELETE 
     const options = {

@@ -31,6 +31,17 @@
 }
 
 .Navbar li.active{
-background-color: #04AA6D;
-  color: white;
+    background-color: #04AA6D;
+    color: white;
 }
+
+@media only screen and (max-width: 600px) {
+    .Navbar {
+      position: unset;
+      align-items: center;
+    }
+    .Navbar a {
+      width: 70px;
+      padding-left: unset;
+    }
+  }

@@ -6,6 +6,15 @@
     justify-content: center;
 }
 
+@media only screen and (max-width: 992px) {
+    .TodoForm{
+        font-size: 22px;
+        display: flex;
+        width: 50vw;
+        align-items: center;
+    }
+}
+
 
 
 

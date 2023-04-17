@@ -15,23 +15,30 @@ const AddTodoForm = ({onAddTodo}) => {
         e.preventDefault();
         console.log(todoTitle);
         onAddTodo({title: todoTitle, id: Date.now()});
-        setTodoTitle("");   
+        setTodoTitle('');   
     }
     return(
         <div className="FormControl">
         <form onSubmit={handleAddTodo} className="TodoForm" >
             <InputWithLabel
+             label="Title"
+             id="todoTitle"
+             type="text"
+             name="title"
+             placeholder="Add new todo"
             todoTitle={todoTitle}
             handleTitleChange={handleTitleChange}
             >
-                <strong>Title: </strong>
+            <strong>Title: </strong>
                 
             </InputWithLabel> 
             <div className="ButtonContainer">
             <button type="submit" className="pinButton" > {<BsPin />} </button>
             </div>
+            
         </form>
         </div>
+        
     )
 }
 

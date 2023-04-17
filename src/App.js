@@ -5,6 +5,7 @@ import Navbar from './Components/Navbar';
 import Notes from './Components/Notes/Notes';
 import Home from './Components/Home';
 import TodoContainer from './Components/TodoContainer';
+import NewTodoList from './Components/NewTodoList';
 
 const App = () => {
 
@@ -33,7 +34,7 @@ const App = () => {
           <Route path='/new'element={ 
             <>
             <Navbar />
-            <h1>New Todo List</h1>
+            <NewTodoList />
             </>
           }></Route>
 

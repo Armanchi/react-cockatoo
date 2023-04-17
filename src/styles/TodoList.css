@@ -25,4 +25,21 @@
     border: 1.5px solid #c8d5b9;
 }
 
+@media only screen and (max-width: 992px) {
+    .TodoListTitleContainer{
+        display: flex;
+        width: 50%;
+        justify-content: center;
 
+    }
+    .IntroTitle{
+    font-size: 26px;
+    text-align: center;
+    }
+    .TodoListContainer {
+        display: flex;
+        flex-direction: column;
+        width: 75vw;
+        height: 55vh;
+    }
+}

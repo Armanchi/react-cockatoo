@@ -13,6 +13,7 @@ const InputWithLabel = ({todoTitle, handleTitleChange, children}) => {
       id="todoTitle"
       type="text" 
       name="title" 
+      placeholder='Add new todo'
       value={todoTitle}
       onChange={handleTitleChange}
       ref={inputRef}

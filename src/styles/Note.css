@@ -59,3 +59,23 @@
     padding-bottom: 10px;
 
 }
+
+@media only screen and (max-width: 992px) {
+    .NoteIntro{
+        display: flex;
+        flex-wrap:wrap;
+        width: 50vw;
+        justify-content: center;
+    }
+    .NoteTitle{
+    font-size: 26px;
+    text-align: center;
+    }
+    .note {
+        grid-template-columns: repeat(2, minmax(300px, 1fr));
+        width: 60%;
+      }
+      .CreateContainer {
+        overflow:scroll;
+      }
+}

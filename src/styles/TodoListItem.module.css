@@ -1,12 +1,18 @@
 .ListItem {
     display: flex;
-    list-style-type: circle;
     padding-bottom: 8px;
     font-size: 17px;
     color: black;
     justify-content: space-between;
 }
 
-
+@media only screen and (max-width: 992px) {
+    .ListItem{
+        display: flex;
+        justify-content: space-between;
+        font-size: 15px;
+        
+    }
+}
 
 
