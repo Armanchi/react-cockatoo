@@ -27,7 +27,6 @@ InputWithLabel.propTypes = {
   name: PropTypes.string,
   value: PropTypes.string,
   onChange: PropTypes.func,
-  children: PropTypes.string,
 };
 
 
