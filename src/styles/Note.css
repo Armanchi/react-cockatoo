@@ -1,14 +1,15 @@
 .NoteIntro{
     background-image: url('https://i.pinimg.com/564x/ea/d6/9a/ead69acce05bc8ab9bf92879264871ae.jpg');
     width: 28%;
-    margin: 5px;
+    margin-left: auto;
+    margin-right: auto;
     border-right: 1px dotted #dad7cd;
     border-left: 1px dotted #dad7cd;
     opacity: .8;
 }
 
 .NoteTitle{
-    font-size: 45px;
+    font-size: 50px;
     text-align: center;
 }
 
@@ -28,6 +29,8 @@
     flex-direction: column;
     justify-content: space-between;
     word-wrap: break-word;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .note__footer {
@@ -66,6 +69,9 @@
         flex-wrap:wrap;
         width: 50vw;
         justify-content: center;
+        margin-left:auto;
+        margin-right: auto;
+        margin-bottom: 10px;
     }
     .NoteTitle{
     font-size: 26px;
@@ -74,8 +80,9 @@
     .note {
         grid-template-columns: repeat(2, minmax(300px, 1fr));
         width: 60%;
-      }
-      .CreateContainer {
-        overflow:scroll;
-      }
+        
+    }
+    .CreateContainer{
+        padding: 5px;
+    }
 }

@@ -1,21 +1,25 @@
+
 .TodoListTitleContainer {
     background-image: url('https://i.pinimg.com/564x/ea/d6/9a/ead69acce05bc8ab9bf92879264871ae.jpg');
     width: 28%;
-    margin: 5px;
+    margin-left: auto;
+    margin-right: auto;
     border-right: 1px dotted #dad7cd;
     border-left: 1px dotted #dad7cd;
     opacity: .8;
 }
 
 .IntroTitle {
-    font-size: 45px;
+    font-size: 50px;
     text-align: center;
 }
 
 .TodoListContainer {
     background-image: url('https://wallpapercave.com/wp/wp3315676.jpg');
-    width: 30%;
-    height: 480px;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    height: 400px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -23,23 +27,32 @@
     box-shadow: inset -6px -4px 2px rgba(255, 255, 255, 0.03); 
     border-radius: 15px;
     border: 1.5px solid #c8d5b9;
+    
 }
 
 @media only screen and (max-width: 992px) {
     .TodoListTitleContainer{
         display: flex;
-        width: 50%;
+        width: 50vw;
         justify-content: center;
+        margin-right: auto;
+        margin-left: auto;
+        margin-bottom: 10px;
 
     }
     .IntroTitle{
     font-size: 26px;
     text-align: center;
     }
+
     .TodoListContainer {
         display: flex;
         flex-direction: column;
-        width: 75vw;
-        height: 55vh;
+        align-items: center;
+        margin-right: auto;
+        margin-left: auto;
+        width: 70vw;
+        height: auto;  
     }
 }
+

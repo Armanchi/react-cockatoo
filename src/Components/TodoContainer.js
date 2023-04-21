@@ -3,13 +3,14 @@ import TodoList from './TodoList'
 import AddTodoForm from './AddTodoForm'
 import Navbar from "./Navbar";
 import '../styles/TodoList.css'
+import PropTypes from 'prop-types';
 
 
 const TodoContainer = () => {
     const [todoList, setTodoList] = useState(
       JSON.parse(localStorage.getItem('savedTodoList') || '[]')
     );
-    const [isLoading, setIsLoading] = React.useState(true);
+    const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
       fetch(`https://api.airtable.com/v0/${process.env.REACT_APP_AIRTABLE_BASE_ID}/Default/`, {
@@ -35,14 +36,12 @@ const TodoContainer = () => {
     //   setTodoList([...todoList, newTodo])
     // }
     
-    const addTodo = async (newTodo) => {
+    const addTodo = (newTodo) => {
       //POST
-      const title = newTodo[0].title;
-      const postBody = {
+      const body = {
         fields: {
-          Title: title,
+          Title: newTodo.title,
         },
-        typecast: true,
       };
       const options = {
         method: "POST",
@@ -50,17 +49,18 @@ const TodoContainer = () => {
           Authorization: `Bearer ${process.env.REACT_APP_AIRTABLE_API_KEY}`,
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(postBody),
+        body: JSON.stringify(body),
       };
-      let todo = {};
+      const todo = {};
       fetch(`https://api.airtable.com/v0/${process.env.REACT_APP_AIRTABLE_BASE_ID}/Default/`, options)
         .then((response) => response.json())
         .then((data) => {
           todo.id = data.id;
           todo.title = data.fields.Title;
-        });
-      setTodoList([...todoList, ...newTodo]);
+          setTodoList([...todoList, todo]);
+        }); 
     };
+
       const removeTodo = async (id) => {
     //DELETE 
     const options = {
@@ -82,6 +82,7 @@ const TodoContainer = () => {
         <div className='TodoListTitleContainer'>
         <h1 className= "IntroTitle">Todo List</h1>
         </div>
+        
         <div className='TodoListContainer'>
         <AddTodoForm onAddTodo={addTodo}/>
         {isLoading ? (
@@ -93,5 +94,11 @@ const TodoContainer = () => {
       </>
     )
 }
+
+TodoContainer.propTypes = {
+  id: PropTypes.string,
+  newTodo: PropTypes.string,
+
+};
 
 export default TodoContainer;

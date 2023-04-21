@@ -2,8 +2,13 @@ import React from 'react'
 import { Link } from "react-router-dom";
 import '../styles/Navbar.css'
 
+
+
 const Navbar = () => {
+
+  
   return (
+    <div className='navContainer'>
     <nav className='Navbar'>
       <ul className='navbarList'>
         <li>
@@ -20,6 +25,18 @@ const Navbar = () => {
         </li>
       </ul>
     </nav>
+
+
+
+      {/* <select> 
+        <option value="" selected="selected">Select</option> 
+        <option value="/">Home</option> 
+        <option value="/todolist">Todo List</option> 
+        <option value="/notes">Notes</option> 
+        <option value="/new">New List</option> 
+      </select> */}
+    
+    </div>
   );
 };
 
