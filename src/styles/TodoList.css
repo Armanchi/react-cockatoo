@@ -17,9 +17,9 @@
 .TodoListContainer {
     background-image: url('https://wallpapercave.com/wp/wp3315676.jpg');
     width: 50%;
+    height: auto;
     margin-left: auto;
     margin-right: auto;
-    height: 400px;
     display: flex;
     flex-direction: column;
     justify-content: center;

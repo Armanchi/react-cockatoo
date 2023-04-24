@@ -36,7 +36,7 @@
 @media only screen and (max-width: 992px) {
     .navContainer {
         display: flex;
-        width: 85vw;
+        width: 100vw;
         justify-content: left;
         padding-bottom: 10px;
         margin: 0;
@@ -47,13 +47,14 @@
     }
     .Navbar li {
         text-decoration: underline;
-        font-size: 16px;
+        font-size: 18px;
+        font-weight: 700;
         padding: 5px;
     }
   }
 
-
-  @media only screen and (max-width: 768px) {
+/* 
+   @media only screen and (max-width: 768px) {
     .navContainer {
         display: flex;
         width: 100vw;
@@ -70,5 +71,5 @@
         font-size: 28px;
         padding: 8px;
     }
-  }
+  }  */
 

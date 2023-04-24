@@ -3,6 +3,7 @@ import Navbar from './Navbar'
 import '../styles/Home.css'
 import { Link } from "react-router-dom";
 import '../shared/globalStyles.css'
+import {FaReact } from "react-icons/fa";
 
 
 const Home = () => {
@@ -17,11 +18,12 @@ const Home = () => {
 
     <div className='IntroContainer'>
             <p>
-             A Todo List application built with React in order to keep
+             A Todo List application built with React {<FaReact />} in order to keep
              track of daily tasks.
             </p> 
-
+            <div className='ButtonContainer'>
             <button> <Link to='/todolist'>Get Started</Link> </button>
+            </div>
     </div>
     
    {/* <div className='imgContainer'> 
