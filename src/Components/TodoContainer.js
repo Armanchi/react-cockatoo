@@ -3,7 +3,6 @@ import TodoList from './TodoList'
 import AddTodoForm from './AddTodoForm'
 import Navbar from "./Navbar";
 import '../styles/TodoList.css'
-import PropTypes from 'prop-types';
 import { BsArrowDownUp } from "react-icons/bs";
 import { BsCalendar2Week } from "react-icons/bs";
 import { BsBriefcase } from "react-icons/bs";
