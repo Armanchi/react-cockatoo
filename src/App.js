@@ -7,6 +7,7 @@ import Home from './Components/Home';
 import TodoContainer from './Components/TodoContainer';
 import NewTodoList from './Components/NewTodoList';
 
+
 const App = () => {
 
   return (
@@ -38,10 +39,10 @@ const App = () => {
             </>
           }></Route>
 
-
           </Routes>
         
     </BrowserRouter>
+    
   );
 }
 

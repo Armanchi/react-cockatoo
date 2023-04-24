@@ -2,5 +2,27 @@
     display: flex;
     flex-direction: column;
     align-self: center;
+    width: 350px;
+    overflow: scroll;
+    height: auto;
+}
+::-webkit-scrollbar {
+    width: 10px;
+  }
+  ::-webkit-scrollbar-corner {
+    background: #c8d5b9;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #c8d5b9;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #647332;
+  }
 
+@media only screen and (max-width: 992px) {
+    .fullTodo {
+        width: auto;
+        overflow: scroll;
+    
+    }
 }

@@ -8,10 +8,12 @@ const TodoListItem = ({  todo, onRemoveTodo })=>{
         <>
         <div className='liContainer'>
             <li className={styles.ListItem}>
-                    {todo.fields.Title}  
-                <button type="button" onClick={() => onRemoveTodo(todo.id)} className= {styles.RemoveButton}>
-                { <BsTrash3 /> }
-                </button>
+                    {todo.fields.Title}
+                <div className={styles.buttonContainer}>
+                    <button type="button" onClick={() => onRemoveTodo(todo.id)} className= {styles.RemoveButton}>
+                        { <BsTrash3 /> }
+                    </button>
+                </div>  
             </li> 
         </div>
         </>

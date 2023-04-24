@@ -3,7 +3,7 @@ import Navbar from './Navbar'
 import '../styles/Home.css'
 import { Link } from "react-router-dom";
 import '../shared/globalStyles.css'
-
+import Footer from './Footer';
 
 const Home = () => {
   return (
@@ -23,11 +23,9 @@ const Home = () => {
 
             <button> <Link to='/todolist'>Get Started</Link> </button>
     </div>
-    
-   {/* <div className='imgContainer'> 
-      <img src={'/assets/.jpg'} style={{width: 500, height: 400}} alt='todolist' className='HomeImg'/>
-     </div>  */}
+    <Footer />
     </>
+    
   )
 }
 
