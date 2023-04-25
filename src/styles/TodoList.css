@@ -1,0 +1,45 @@
+.TodoListTitleContainer {
+    background-image: url('https://i.pinimg.com/564x/ea/d6/9a/ead69acce05bc8ab9bf92879264871ae.jpg');
+    width: 28%;
+    margin: 5px;
+    border-right: 1px dotted #dad7cd;
+    border-left: 1px dotted #dad7cd;
+    opacity: .8;
+}
+
+.IntroTitle {
+    font-size: 45px;
+    text-align: center;
+}
+
+.TodoListContainer {
+    background-image: url('https://wallpapercave.com/wp/wp3315676.jpg');
+    width: 30%;
+    height: 480px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: inset -6px -4px 2px rgba(255, 255, 255, 0.03); 
+    border-radius: 15px;
+    border: 1.5px solid #c8d5b9;
+}
+
+@media only screen and (max-width: 992px) {
+    .TodoListTitleContainer{
+        display: flex;
+        width: 50%;
+        justify-content: center;
+
+    }
+    .IntroTitle{
+    font-size: 26px;
+    text-align: center;
+    }
+    .TodoListContainer {
+        display: flex;
+        flex-direction: column;
+        width: 75vw;
+        height: 55vh;
+    }
+}

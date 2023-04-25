@@ -1,32 +1,44 @@
 import React from "react";
 import { useState } from "react";
 import InputWithLabel from "./InputWithLabel";
+import '../styles/TodoForm.css'
+import { BsPin } from "react-icons/bs";
 
 const AddTodoForm = ({onAddTodo}) => {
     const [todoTitle, setTodoTitle] = useState('');
+
     const handleTitleChange = (e) => {
         const newTodoTitle = e.target.value
         setTodoTitle(newTodoTitle)
     }
-    const handleAddTodo = (event) => {
-        event.preventDefault();
+    const handleAddTodo = (e) => {
+        e.preventDefault();
         console.log(todoTitle);
         onAddTodo({title: todoTitle, id: Date.now()});
-        setTodoTitle("");   
+        setTodoTitle('');   
     }
     return(
-        <div>
-        <form onSubmit={handleAddTodo}>
+        <div className="FormControl">
+        <form onSubmit={handleAddTodo} className="TodoForm" >
             <InputWithLabel
+             label="Title"
+             id="todoTitle"
+             type="text"
+             name="title"
+             placeholder="Add new todo"
             todoTitle={todoTitle}
             handleTitleChange={handleTitleChange}
-            autoFocus
             >
-                <strong>Title: </strong>
+            <strong>Title: </strong>
+                
             </InputWithLabel> 
-            <button type="submit">Add</button>
+            <div className="ButtonContainer">
+            <button type="submit" className="pinButton" > {<BsPin />} </button>
+            </div>
+            
         </form>
         </div>
+        
     )
 }
 
