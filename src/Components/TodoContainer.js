@@ -3,24 +3,29 @@ import TodoList from './TodoList'
 import AddTodoForm from './AddTodoForm'
 import Navbar from "./Navbar";
 import '../styles/TodoList.css'
+import { BsArrowDownUp } from "react-icons/bs";
+import { BsCalendar2Week } from "react-icons/bs";
+import { BsBriefcase } from "react-icons/bs";
+import { CgSmile } from "react-icons/cg";
 
 
 const TodoContainer = () => {
     const [todoList, setTodoList] = useState(
       JSON.parse(localStorage.getItem('savedTodoList') || '[]')
     );
-    const [isLoading, setIsLoading] = React.useState(true);
+    const [isLoading, setIsLoading] = useState(true);
+    // const [ascending, setAscending] = useState(false);
 
     useEffect(() => {
-      fetch(`https://api.airtable.com/v0/${process.env.REACT_APP_AIRTABLE_BASE_ID}/Default/`, {
+      fetch(`https://api.airtable.com/v0/${process.env.REACT_APP_AIRTABLE_BASE_ID}/Default?view=Grid%20view`, {
         method: 'GET',
         headers: {
           'Authorization': `Bearer ${process.env.REACT_APP_AIRTABLE_API_KEY}`,
         },
       }) 
         .then((response) => response.json())
-        .then(result => {
-          setTodoList(result.records);
+        .then(response => {
+          setTodoList(response.records);
           setIsLoading(false)
         })
       }, []);
@@ -35,14 +40,12 @@ const TodoContainer = () => {
     //   setTodoList([...todoList, newTodo])
     // }
     
-    const addTodo = async (newTodo) => {
+    const addTodo = (newTodo) => {
       //POST
-      const title = newTodo[0].title;
-      const postBody = {
+      const body = {
         fields: {
-          Title: title,
+          Title: newTodo.title,
         },
-        typecast: true,
       };
       const options = {
         method: "POST",
@@ -50,17 +53,18 @@ const TodoContainer = () => {
           Authorization: `Bearer ${process.env.REACT_APP_AIRTABLE_API_KEY}`,
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(postBody),
+        body: JSON.stringify(body),
       };
-      let todo = {};
+      const todo = {};
       fetch(`https://api.airtable.com/v0/${process.env.REACT_APP_AIRTABLE_BASE_ID}/Default/`, options)
         .then((response) => response.json())
         .then((data) => {
           todo.id = data.id;
           todo.title = data.fields.Title;
-        });
-      setTodoList([...todoList, ...newTodo]);
+          setTodoList([...todoList, todo]);
+        }); 
     };
+
       const removeTodo = async (id) => {
     //DELETE 
     const options = {
@@ -75,21 +79,37 @@ const TodoContainer = () => {
     );
     setTodoList(todoList.filter((todoList) => todoList.id !== id));
   };
-
-    return(
-        <>
+  return(
+      <>
         <Navbar />
-        <div className='TodoListTitleContainer'>
-        <h1 className= "IntroTitle">Todo List</h1>
-        </div>
-        <div className='TodoListContainer'>
-        <AddTodoForm onAddTodo={addTodo}/>
-        {isLoading ? (
-        <p>Loading...</p>
-          ) : (
-        <TodoList todoList={todoList} onRemoveTodo={removeTodo} />
-  )}
-  </div>
+          <div className='TodoListTitleContainer'>
+            <h1 className= "IntroTitle">Todo List</h1>
+          </div>
+          <div className='TodoListContainer'>
+            <AddTodoForm onAddTodo={addTodo}/>
+              {isLoading ? (
+                <p>Loading...</p>
+                  ) : (
+                <TodoList todoList={todoList} onRemoveTodo={removeTodo} />
+                )}
+          </div>
+          <div className='keyContainer'>
+            <div className='keyTitle'>
+                <h2 className='keyTitle'>Key:</h2>
+            </div>
+              <button className='sortButton'>
+                {<BsArrowDownUp />}
+              </button>
+              <button className='sortButton'>
+                {<BsCalendar2Week />}
+              </button>
+              <button className='sortButton'>
+                {<BsBriefcase />}
+              </button>
+              <button>
+                {<CgSmile />}
+              </button>
+          </div>
       </>
     )
 }

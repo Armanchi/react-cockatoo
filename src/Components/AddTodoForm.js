@@ -3,6 +3,7 @@ import { useState } from "react";
 import InputWithLabel from "./InputWithLabel";
 import '../styles/TodoForm.css'
 import { BsPin } from "react-icons/bs";
+import PropTypes from "prop-types";
 
 const AddTodoForm = ({onAddTodo}) => {
     const [todoTitle, setTodoTitle] = useState('');
@@ -13,7 +14,6 @@ const AddTodoForm = ({onAddTodo}) => {
     }
     const handleAddTodo = (e) => {
         e.preventDefault();
-        console.log(todoTitle);
         onAddTodo({title: todoTitle, id: Date.now()});
         setTodoTitle('');   
     }
@@ -33,7 +33,7 @@ const AddTodoForm = ({onAddTodo}) => {
                 
             </InputWithLabel> 
             <div className="ButtonContainer">
-            <button type="submit" className="pinButton" > {<BsPin />} </button>
+            <button type="submit" className="pinButton" disabled={todoTitle.length === 0}> {<BsPin />} </button>
             </div>
             
         </form>
@@ -42,6 +42,9 @@ const AddTodoForm = ({onAddTodo}) => {
     )
 }
 
+AddTodoForm.propTypes = {
+    onAddTodo: PropTypes.func,
+  };
 
 
 export default AddTodoForm;
