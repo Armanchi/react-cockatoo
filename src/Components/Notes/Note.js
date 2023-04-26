@@ -11,7 +11,7 @@ const Note = ({ id, text, deleteNote }) => {
           className="note__delete"
           onClick={() => deleteNote(id)}
           aria-hidden="true"
-        >{<BsTrash3 />}</button>
+        >{<BsTrash3 size={'15px'} />}</button>
       </div>
     </div>
     </div>

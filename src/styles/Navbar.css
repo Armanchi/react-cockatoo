@@ -1,12 +1,8 @@
 .Navbar {
     display: flex;
-    align-items: center;
-    opacity: .7;
-    overflow: hidden;
-    width: 95%;
-    border-radius: 15px;
-    justify-content: center;
-    
+    opacity: .8;
+    width: 96vw;
+    justify-content: center;   
 }
 
 .Navbar a{
@@ -28,16 +24,13 @@
     background-color: #c8d5b9;
 }
 
-/* .Navbar li.active{
-    background-color: #04AA6D;
-    color: white;
-} */
 
 @media only screen and (max-width: 992px) {
     .navContainer {
         display: flex;
-        width: 85vw;
-        justify-content: left;
+        width: 90vw;
+        justify-content: center;
+        align-items: center;
         padding-bottom: 10px;
         margin: 0;
         
@@ -47,13 +40,16 @@
     }
     .Navbar li {
         text-decoration: underline;
-        font-size: 16px;
-        padding: 5px;
+        font-size: 18px;
+        padding: 5px;  
+    }
+    .Navbar li:hover{
+        background-color: transparent;
     }
   }
 
 
-  @media only screen and (max-width: 768px) {
+  /* @media only screen and (max-width: 768px) {
     .navContainer {
         display: flex;
         width: 100vw;
@@ -70,5 +66,5 @@
         font-size: 28px;
         padding: 8px;
     }
-  }
+  } */
 

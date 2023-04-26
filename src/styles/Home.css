@@ -23,11 +23,19 @@
     border-left: 1px dotted #dad7cd;
     opacity: .8;
     padding: 10px 24px;
+    flex-wrap: wrap;
 }
 .IntroContainer p {
-    font-size: 20px;
+    font-size: 16px;
 }
-
+.IntroContainer button {
+    width: 65px;
+    height: 35px;
+}
+.buttonContainer {
+    display: flex;
+    justify-content: space-evenly;
+}
 
 button a {
     color: black;

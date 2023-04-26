@@ -3,11 +3,9 @@ import TodoList from './TodoList'
 import AddTodoForm from './AddTodoForm'
 import Navbar from "./Navbar";
 import '../styles/TodoList.css'
-import { CgSmile } from "react-icons/cg";
-import { BsArrowDownSquare } from "react-icons/bs";
-import { BsArrowUpSquare } from "react-icons/bs";
-import { BsCalendarWeek } from "react-icons/bs";
-import { BsBriefcase } from "react-icons/bs";
+// import { CgSmile } from "react-icons/cg";
+import { BsArrowUpShort,  BsArrowDownShort} from "react-icons/bs";
+import { BiCalendar } from "react-icons/bi";
 
 
 const TodoContainer = () => {
@@ -37,7 +35,11 @@ const TodoContainer = () => {
             }
             return 0;
             })
-          setTodoList(result.records);
+            const todos = result.records.map((todo) => {
+              return {id:todo.id, title:todo.fields.Title}
+            })
+          console.log(todos)
+          setTodoList(todos);
           setIsLoading(false)
         })
       }, [isAscending]);
@@ -48,41 +50,34 @@ const TodoContainer = () => {
       }
     }, [todoList, isLoading]);
 
-    // const addTodo = (newTodo) => {
-    //   setTodoList([...todoList, newTodo])
-    // }
-    const addTodo = (newTodo) => {
+    const addTodo = (title) => {
       //POST
-      const body = {
-        fields: {
-          Title: newTodo.title,
-          
-        },
-      };
-      const options = {
-        method: "POST",
-        headers: {
-          Authorization: `Bearer ${process.env.REACT_APP_AIRTABLE_API_KEY}`,
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(body),
-      };
-      const todo = {};
-      fetch(`https://api.airtable.com/v0/${process.env.REACT_APP_AIRTABLE_BASE_ID}/Default/?view=Grid%20view&sort[0][field]=Title&sort[0][direction]=asc`, options)
+      fetch(
+        `https://api.airtable.com/v0/${process.env.REACT_APP_AIRTABLE_BASE_ID}/Default`,
+        {
+          method: "POST",
+          headers: {
+            Authorization: `Bearer ${process.env.REACT_APP_AIRTABLE_API_KEY}`,
+            "Content-type": "application/json"
+          },
+          body: JSON.stringify({"fields":{"Title":title.title}})
+  
+        }
+      )
         .then((response) => response.json())
         .then((data) => {
-          todo.id = data.id;
-          todo.title = data.fields.Title;
-          setTodoList([...todoList, todo]);
-        }); 
+          setTodoList([...todoList, {id:data.id, title:data.fields.Title}]);
+          console.log(data)
+        })
     };
 
-      const removeTodo = async (id) => {
+    const removeTodo = async (id) => {
     //DELETE 
     const options = {
       method: "DELETE",
       headers: {
         Authorization: `Bearer ${process.env.REACT_APP_AIRTABLE_API_KEY}`,
+        "Content-Type": "application/json",
       },
     };
     await fetch(
@@ -91,10 +86,13 @@ const TodoContainer = () => {
     );
     setTodoList(todoList.filter((todoList) => todoList.id !== id));
   };
+//TODO: Create PUT req. and sort by date toggle btn
+
   //sort
   const Sorted = () => {
     setIsAscending(!isAscending);
   };
+  
 
   return(
       <>
@@ -102,7 +100,7 @@ const TodoContainer = () => {
         <div className='TodoListTitleContainer'>
           <h1 className= "IntroTitle">Todo List</h1>
         </div>
-        
+        <div className='allContainer'>
         <div className='TodoListContainer'>
           <AddTodoForm onAddTodo={addTodo}/>
             {isLoading ? (
@@ -110,30 +108,23 @@ const TodoContainer = () => {
               ) : (
           <TodoList todoList={todoList} onRemoveTodo={removeTodo} />
    )}
-        </div>
-        <div>
-          <h2>Key:</h2>
-        </div>
-        <div>
+        <div className="keyContainer">
+          {/* <h2>Key:</h2> */}
+        
+        <div className="buttonContainer">
           <button onClick={Sorted}>
-              {isAscending ? <BsArrowUpSquare /> : <BsArrowDownSquare />}
+              {isAscending ? < BsArrowUpShort size={'15px'} /> : <BsArrowDownShort size={'15px'}/>}
+              {isAscending ? 'A - Z' : 'Z - A'}
           </button>
-        </div>
-        <div>
           <button>
-              {<BsCalendarWeek />}
+              {<BiCalendar size={'15px'} />}
+              Date
           </button>
         </div>
-        <div>
-          <button>
-              {<BsBriefcase />}
-          </button>
         </div>
-        <div>
-          <button>
-              {<CgSmile />}
-          </button>
         </div>
+        </div>
+
       </>
     )
 }

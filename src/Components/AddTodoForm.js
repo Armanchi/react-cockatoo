@@ -33,7 +33,7 @@ const AddTodoForm = ({onAddTodo}) => {
                 
             </InputWithLabel> 
             <div className="ButtonContainer">
-            <button type="submit" className="pinButton" disabled={todoTitle.length === 0}> {<BsPin />} </button>
+            <button type="submit" className="pinButton" disabled={todoTitle.length === 0}> {<BsPin size={'15px'} />} </button>
             </div>
             <div>
         </div>
