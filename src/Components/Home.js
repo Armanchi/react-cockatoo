@@ -8,9 +8,6 @@ import { BsFolder, BsCardList } from "react-icons/bs";
 import { FaReact } from "react-icons/fa";
 
 
-
-
-
 const Home = () => {
   return (
     <>

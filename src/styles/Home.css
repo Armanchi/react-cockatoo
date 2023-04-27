@@ -6,14 +6,11 @@
     border-right: 1px dotted #dad7cd;
     border-left: 1px dotted #dad7cd;
     opacity: .8;
-
 }
-
 .Title{
     font-size: 50px;
     text-align: center;
 }
-
 .IntroContainer{
     background-image: url('https://i.pinimg.com/564x/23/97/0f/23970f0adb578b330fd3d8c94b1cae4a.jpg');
     width: 25%;
