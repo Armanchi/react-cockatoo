@@ -25,11 +25,10 @@ const AddTodoForm = ({onAddTodo}) => {
              id="todoTitle"
              type="text"
              name="title"
-             placeholder="Add new todo"
             todoTitle={todoTitle}
             handleTitleChange={handleTitleChange}
             >
-            <strong>Title: </strong>
+            <h2 className="formTitle">Title: </h2>
                 
             </InputWithLabel> 
             <div className="ButtonContainer">

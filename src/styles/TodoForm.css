@@ -1,27 +1,35 @@
+.FormControl {
+    display: flex;
+    width: 100%;
+    justify-content: center;   
+}
+.formTitle{
+    height: 10px;
+}
 .TodoForm {
     display: flex;
     flex-direction: column;
-    align-items: center; 
-    font-size: 45px; 
-    min-height: 140px;
-    justify-content: center;
+    align-items: center;
+    margin: 0;   
+}
+.ButtonContainer{
+    padding-top: 5px;
 }
 
 @media only screen and (max-width: 992px) {
     .TodoForm{
-        font-size: 35px;
-        min-height: 140px;
+        font-size: 18px;
         display: flex;
         flex-direction: column;
-        justify-content: space-between;
+        justify-content: center;
         word-wrap: break-word;
-        margin-left: auto;
-        margin-right: auto;
+    }
+    .formTitle{
+        height: 15px;
     }
     .ButtonContainer{
         display: flex;
         justify-content: center;
-        padding-left: 5px;
     }
  
 }

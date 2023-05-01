@@ -9,11 +9,13 @@ import { BiCalendar } from "react-icons/bi";
 
 
 const TodoContainer = () => {
+  const url = `https://api.airtable.com/v0/${process.env.REACT_APP_AIRTABLE_BASE_ID}/Default`;
     const [todoList, setTodoList] = useState(
       JSON.parse(localStorage.getItem('savedTodoList') || '[]')
     );
     const [isLoading, setIsLoading] = useState(true);
     const [isAscending, setIsAscending] = useState(true);
+    // const [createdDate, setCreatedDate] = useState(true);
 	
 
     useEffect(() => {
@@ -25,6 +27,7 @@ const TodoContainer = () => {
       }) 
         .then((response) => response.json())
         .then(result => {
+
           const Sorted = isAscending ? 1 : -1;
           result.records.sort((objectA, objectB) => {
             if (objectA.fields.Title < objectB.fields.Title) {
@@ -38,6 +41,7 @@ const TodoContainer = () => {
             const todos = result.records.map((todo) => {
               return {id:todo.id, title:todo.fields.Title}
             })
+     
           console.log(todos)
           setTodoList(todos);
           setIsLoading(false)
@@ -53,7 +57,7 @@ const TodoContainer = () => {
     const addTodo = (title) => {
       //POST
       fetch(
-        `https://api.airtable.com/v0/${process.env.REACT_APP_AIRTABLE_BASE_ID}/Default`,
+        url,
         {
           method: "POST",
           headers: {
@@ -86,13 +90,51 @@ const TodoContainer = () => {
     );
     setTodoList(todoList.filter((todoList) => todoList.id !== id));
   };
-//TODO: Create PUT req. and sort by date toggle btn
 
-  //sort
+// const updateTodo = (todo) => {
+//     const body = {
+//       records: [
+//         {
+//           id: todo.id,
+//           fields: {
+//             Title: todo.title,
+//           },
+//         },
+//       ],
+//     };
+//     const options = {
+//       method: 'PATCH',
+//       headers: {
+//         Authorization: `Bearer ${process.env.REACT_APP_AIRTABLE_API_KEY}`,
+//         'Content-type': 'application/json',
+//       },
+//       body: JSON.stringify(body),
+//     };
+//     fetch(url, options)
+//       .then((response) => response.json())
+//       .then((data) => {
+//         const updatedTodo = {
+//           title: data.records[0].fields.Title,
+//           id: data.records[0].id,
+//         };
+//         const updatedTodoList = todoList.map((todo) => {
+//           if (todo.id === updatedTodo.id) {
+//             return updatedTodo;
+//           } else {
+//             return todo;
+//           }
+//         });
+//         setTodoList([...updatedTodoList]);
+//       });
+//   }
+
+  //sort by asc
   const Sorted = () => {
     setIsAscending(!isAscending);
   };
-  
+
+
+
 
   return(
       <>
