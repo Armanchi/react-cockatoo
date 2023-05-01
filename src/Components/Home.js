@@ -3,7 +3,9 @@ import Navbar from './Navbar'
 import '../styles/Home.css'
 import { Link } from "react-router-dom";
 import '../shared/globalStyles.css'
-import {FaReact } from "react-icons/fa";
+import Footer from './Footer';
+import { BsFolder, BsCardList } from "react-icons/bs";
+import { FaReact } from "react-icons/fa";
 
 
 const Home = () => {
@@ -18,18 +20,20 @@ const Home = () => {
 
     <div className='IntroContainer'>
             <p>
-             A Todo List application built with React {<FaReact />} in order to keep
-             track of daily tasks.
+             A Todo list app built with {<FaReact />} React. <br />
+             View, create, and organize your every day tasks in the Todo List.
+             Notes can also be created and saved in the Notes section.
+             <br />
             </p> 
-            <div className='ButtonContainer'>
-            <button> <Link to='/todolist'>Get Started</Link> </button>
+            <div className='buttonContainer'>
+            <button> <Link to='/todolist'>{<BsCardList />}</Link> </button>
+           
+            <button><a href='https://github.com/Armanchi/react-cockatoo'>{<BsFolder />}</a></button>
             </div>
     </div>
-    
-   {/* <div className='imgContainer'> 
-      <img src={'/assets/.jpg'} style={{width: 500, height: 400}} alt='todolist' className='HomeImg'/>
-     </div>  */}
+    <Footer />
     </>
+    
   )
 }
 

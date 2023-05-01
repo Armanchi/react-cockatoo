@@ -3,6 +3,7 @@
 body {
     background-image: url('https://i.pinimg.com/736x/d3/4c/69/d34c6961043f060b6a661121c647407e.jpg');
     font-family: 'Roboto Mono', monospace;
+    overflow-x: hidden;
 }
 button {
     background-color: #c8d5b9;

@@ -1,16 +1,20 @@
 .ListItem {
     display: flex;
     padding-bottom: 8px;
-    font-size: 17px;
+    font-size: 18px;
     color: black;
     justify-content: space-between;
 }
+.buttonContainer{
+    padding-right: 10px;
+}
+
 
 @media only screen and (max-width: 992px) {
     .ListItem{
         display: flex;
         justify-content: space-between;
-        font-size: 20px;
+        font-size: 18px;
         flex-direction: row; 
 
     }
