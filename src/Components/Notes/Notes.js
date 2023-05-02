@@ -3,7 +3,6 @@ import '../../styles/Note.css'
 import CreateNote from "./CreateNote";
 import Note from "./Note";
 import { v4 as uuid } from "uuid";
-import Navbar from "../Navbar";
 
 const Notes = () => {
 
@@ -44,8 +43,8 @@ const Notes = () => {
   }, [notes]);
 
   return (
+    <>
     <div className='notes'>
-        <Navbar />
         <div className="NoteIntro">
 
         <h1 className="NoteTitle">Notes</h1>
@@ -57,7 +56,8 @@ const Notes = () => {
         saveHandler={saveHandler}
         inputText={inputText}
       />
-        </div>
+    </div>
+    </div>
     <div className="NoteContainer">
       <div>
       {notes.map((note) => (
@@ -66,14 +66,11 @@ const Notes = () => {
           id={note.id}
           text={note.text}
           deleteNote={deleteNote}
-        />
-        
+        /> 
       ))}
       </div>
     </div>
-
-  
-    </div>
+    </>
   );
 }
 

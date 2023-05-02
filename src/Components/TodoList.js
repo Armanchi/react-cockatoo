@@ -3,9 +3,7 @@ import TodoListItem from './TodoListItem';
 import '../styles/TodoListUL.css'
 import PropTypes from "prop-types";
 
-
-
-const TodoList = ({ todoList, onRemoveTodo }) => {
+const TodoList = ({ todoList, onRemoveTodo}) => {
   console.log(todoList);
   return (
     <>

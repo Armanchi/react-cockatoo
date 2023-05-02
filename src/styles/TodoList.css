@@ -14,7 +14,9 @@
 }
 
 .TodoListContainer {
-    background-image: url('https://wallpapercave.com/wp/wp3315676.jpg');
+    background-image: url('https://img.freepik.com/free-photo/crumpled-white-paperboard_95678-119.jpg?w=1060&t=st=1682950549~exp=1682951149~hmac=f57f92a5e33930032da385fbc026693efe6ee16bb4f64e0ad8304dc5b1b40fd2');
+    /* TODO: update todo list background */
+    opacity: .8;
     width: 45%;
     margin-left: auto;
     margin-right: auto;
@@ -55,6 +57,7 @@
         margin-right: auto;
         margin-left: auto;
         margin-bottom: 10px;
+        
 
     }
     .IntroTitle{
@@ -81,10 +84,10 @@
     }
     .buttonContainer {
         display: flex;
-        height: 30px;
-        flex-direction: row;
+        flex-direction: column;
         justify-content: space-between;
         margin-bottom: 15px;
+        flex-wrap: wrap;
     }
 }
 
