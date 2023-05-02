@@ -12,26 +12,27 @@
     text-align: center;
 }
 .IntroContainer{
-    background-image: url('https://i.pinimg.com/564x/23/97/0f/23970f0adb578b330fd3d8c94b1cae4a.jpg');
+    background-image: url('https://img.freepik.com/free-photo/crumpled-white-paperboard_95678-119.jpg?w=1060&t=st=1682950549~exp=1682951149~hmac=f57f92a5e33930032da385fbc026693efe6ee16bb4f64e0ad8304dc5b1b40fd2');
     width: 25%;
     margin-left: auto;
     margin-right: auto;
     border-right: 1px dotted #dad7cd;
     border-left: 1px dotted #dad7cd;
-    opacity: .8;
+    opacity: .7;
     padding: 10px 24px;
     flex-wrap: wrap;
 }
 .IntroContainer p {
     font-size: 16px;
 }
-.IntroContainer button {
+/* .IntroContainer button {
     width: 65px;
     height: 35px;
-}
+} */
 .buttonContainer {
     display: flex;
-    justify-content: space-evenly;
+    flex-direction: row;
+    justify-content: space-between;
 }
 
 button a {
@@ -55,8 +56,8 @@ button a {
     text-align: center;
     }
     .IntroContainer{
-        width: 60vw;
-        height: 39vh;
+        width: auto;
+        height: auto;
         margin-left: auto;
         margin-right:auto;
         display: flex;
@@ -64,7 +65,13 @@ button a {
         flex-wrap: wrap;
     }
     .IntroContainer p {
-        font-size: 14px;
-
+        font-size: large;
     }
+    .buttonContainer {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        flex-wrap: wrap;
+    }
+   
 }

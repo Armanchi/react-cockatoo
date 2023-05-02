@@ -13,6 +13,7 @@ const CreateNote = ({ textHandler, saveHandler, inputText }) => {
         placeholder="Type...."
         onChange={textHandler}
         maxLength="100"
+        className="textbox"
       ></textarea>
 
       <div className="note__footer">

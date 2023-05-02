@@ -7,14 +7,15 @@ import Home from './Components/Home';
 import TodoContainer from './Components/TodoContainer';
 import NewTodoList from './Components/NewTodoList';
 
-
 const App = () => {
 
   return (
+    <>
     <BrowserRouter>
     <Routes>
     <Route path='/'element={ 
           <>
+          <Navbar />
             <Home />
           </>
           }></Route>
@@ -22,12 +23,14 @@ const App = () => {
       <Route exact path='/todolist' 
       element={
           <>
+          <Navbar />
           <TodoContainer />
           </>
       }></Route>
 
          <Route path='/notes'element={ 
           <>
+          <Navbar />
             <Notes />
           </>
           }></Route>
@@ -42,7 +45,7 @@ const App = () => {
           </Routes>
         
     </BrowserRouter>
-    
+    </>
   );
 }
 

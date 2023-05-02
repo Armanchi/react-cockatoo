@@ -3,6 +3,7 @@ import { BsTrash3 } from "react-icons/bs";
 
 const Note = ({ id, text, deleteNote }) => {
   return (
+    <>
     <div className="NoteContainer">
     <div className="note">
       <div className="note__body">{text}</div>
@@ -15,6 +16,7 @@ const Note = ({ id, text, deleteNote }) => {
       </div>
     </div>
     </div>
+    </>
   );
 }
 

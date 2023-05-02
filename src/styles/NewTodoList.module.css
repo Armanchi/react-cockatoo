@@ -13,6 +13,23 @@
     text-align: center;
 }
 
+.ListText{
+    background-image: url('https://img.freepik.com/free-photo/crumpled-white-paperboard_95678-119.jpg?w=1060&t=st=1682950549~exp=1682951149~hmac=f57f92a5e33930032da385fbc026693efe6ee16bb4f64e0ad8304dc5b1b40fd2');
+    width: 20%;
+    margin-left: auto;
+    margin-right: auto;
+    align-items: center;
+    border-right: 1px dotted #dad7cd;
+    border-left: 1px dotted #dad7cd;
+    opacity: .7;
+    padding: 15px 24px;
+    flex-wrap: wrap;
+}
+
+.ListText p{
+    text-align: center;
+}
+
 @media only screen and (max-width: 992px) {
     .intro{
         display: flex;
@@ -22,8 +39,24 @@
         justify-content: center;
         margin-left:auto;
         margin-right: auto;
+        margin-bottom: 10px;
     }
     .Title{
     font-size: 26px;
+    }
+    .ListText{
+        width: 40%;
+        height: 30%;
+        margin-left: auto;
+        margin-right:auto;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+    }
+    .ListText p {
+        font-size: large;
+    }
+    img{
+        display: none;
     }
 }

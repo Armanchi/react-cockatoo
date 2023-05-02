@@ -1,12 +1,12 @@
 /* @import url('https://fonts.googleapis.com/css2?family=NTR&display=swap'); */
 @import url('https://fonts.googleapis.com/css2?family=Courgette&family=NTR&family=Roboto+Mono&display=swap');
 body {
-    background-image: url('https://i.pinimg.com/736x/d3/4c/69/d34c6961043f060b6a661121c647407e.jpg');
+    background-image: url('https://i.pinimg.com/564x/ac/24/19/ac2419ccc813a1ce5661a1a83fe72a04.jpg');
     font-family: 'Roboto Mono', monospace;
     overflow-x: hidden;
 }
 button {
-    background-color: #c8d5b9;
+    background-color:#a4c3b2;
     opacity: .6;
     transition: 0.1s ease-in-out;
     border: 1.5px solid #fff;
@@ -18,7 +18,7 @@ button {
 }
 
 button:hover{
-    background:#647332;
+    background: #c8d5b9; 
     border: 1.5px solid #fff;
 }
 

@@ -8,12 +8,19 @@
 .ending-credits {
     text-align: center;
     width: 100%;
-    font-size: 12px;
+    font-size: 14px;
     
   }
 @media only screen and (max-width: 992px) {
+    #credits {
+        display: flex;
+        align-items: center;
+        position: absolute;
+        width: 100vw;
+        bottom: 0;
+      }
     .ending-credits {
-        font-size: 9px;
+        font-size: 12px;
         
       }
 }
